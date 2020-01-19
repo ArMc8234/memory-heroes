@@ -4,7 +4,7 @@ import "./style.css";
 
 function CharacterCard(props) {
   return (
-    <img src={props.image} alt={props.name} className={props.type} key={props.id} />
+    <img src={props.image} alt={props.name} className={props.type} key={props.id} count={props.count} onClick={props.handleIncrement}/>
      
 
   );
