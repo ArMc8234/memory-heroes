@@ -9,14 +9,19 @@ img {
   text-align: left;
 }
 
-img > img-container {
+img:hover {
+  transform: scale(1.2);
+  /* z-index: 100; */
+}
+
+img > #img-container {
   height: 60%;
   overflow: hidden;
   text-align: center;
   background:#6CADDC;
 }
-img > img-container > img {
-  width: 60%
+img > #img-container > img {
+  width: 60%;
 }
 
 img > .content {

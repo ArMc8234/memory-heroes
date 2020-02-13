@@ -1,74 +1,97 @@
 import React, { Component } from "react";
-import CharacterCard from "./components/CharacterCard";
+
 import Wrapper from "./components/Wrapper";
-import Navbar from "./components/navbar";
-import Header from "./components/header";
-import characters from "./characters.json";
 
-
-
+// import characters from "./characters.json";
 
 class App extends Component {
   state = {
-    characters,
-    score: 0,
-    topScore: 0,
-    count: 0
-  
+   
+    // characters,
+    // characters:[
+    //   {
+    //     id: 1,
+    //     name: "Apocalypse",
+    //     image: "/assets/apocalypse.jpg",
+    //     clicked: false
+    //   },
+    //   {
+    //    id: 2,
+    //     name: "Black Panther",
+    //     image: "/assets/blackPanther.jpg",
+    //     clicked: false
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "Captain Universe Spiderman",
+    //     image: "/assets/captain_cosmic_spiderman.jpg",
+    //     clicked: false
+    //   },
+    //   {
+    //     id: 4,
+    //     name: "Captain America",
+    //     image: "/assets/captainAmerica.jpg",
+    //     clicked: false
+    
+    //   },
+    //   {
+    //     "id": 5,
+    //     "name": "Hawkeye",
+    //    "image": "/assets/hawkeye.jpg",
+    //     "clicked": false
+    
+    //   },
+    //   {
+    //     "id": 6,
+    //     "name": "Hulk",
+    //     "image": "/assets/hulk.jpg",
+    //     "clicked": false
+    //   },
+    //   {
+    //     id: 7,
+    //     name: "Iron Man",
+    //     image: "/assets/ironman.jpg",
+    //     clicked: false
+    //   },
+    //   {
+    //     id: 8,
+    //     name: "Kingpin",
+    //     image: "/assets/kingpin.jpg",
+    //     clicked: false
+    //   },
+    //   {
+    //     id: 9,
+    //     name: "Mr. Sinister",
+    //     image: "/assets/misterSinister.jpg",
+    //     clicked: false
+    //   },
+    //   {
+    //     id: 10,
+    //     name: "Professor X",
+    //     image: "/assets/professorX.jpg",
+    //     clicked: false
+    //   },
+    //   {
+    //     id: 11,
+    //     name: "Thanos",
+    //     image: "/assets/thanos.jpg",
+    //     clicked: false
+    //   },
+    //   {
+    //     id: 12,
+    //     name: "Wolverine",
+    //     image:"/assets/wolverine.jpg",
+    //     clicked: false
+    //   }
+    // ]
   };
 
-  componentDidMount (){
-    this.shuffleArray();
-  } 
-  
-  
-  shuffleArray = () => {
-    const characters = this.state.characters.sort(() => Math.random() - 0.5);
-    this.setState({characters});
-  }
-  handleIncrement = () => {
-    // We always use the setState method to update a component's state
-    // if(this.state.count === 0){
-      this.setState({ score: this.state.score + 1 });
-      this.setState({ topScore: this.state.topScore + 1 });
-     
-    // }
-  };
  
-  // characterClicked =(event) => {
-  //   if
-  // }
-
   render() {
     return (
-      <div>
-
-      <Navbar score={this.state.score} topScore={this.state.topScore} />
-      <Header alignment="text-center"/>
-      <Wrapper>
-        {this.state.characters.map(character =>(
-         <div className="imgDiv" onClick={this.handleIncrement}>
-           <CharacterCard
-            name={character.name}
-            image={character.image}
-            key={character.id}
-            type={"img-thumbnail"}
-            count={0}
-            />
-         </div>
-        ))}
-      </Wrapper>
-      </div>
-      );     
-    }
+           <Wrapper/>
+    );
   }
-
-      
-     
-          
-
-        
-
-
+}
 
 export default App;
