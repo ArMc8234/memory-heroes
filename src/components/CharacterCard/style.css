@@ -1,39 +1,41 @@
-img {
+.img-container {
   background: #fff;
   border-radius: 2px;
   height: 200px;
   margin: 1rem;
   position: relative;
+  display: inline-block;
   width: 150px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
 }
 
-img:hover {
+.img-container:hover {
   transform: scale(1.2);
   /* z-index: 100; */
 }
 
-img > #img-container {
+ .img-container {
   height: 60%;
   overflow: hidden;
   text-align: center;
   background:#6CADDC;
 }
-img > #img-container > img {
-  width: 60%;
+ .img-container > img {
+  height: 200px; 
+  width: 100%;
 }
 
-img > .content {
+.img-container > .content {
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 15px;
 }
 
-img > .content > ul {
+.img-container > .content > ul {
   list-style-type: none;
 }
 
-img > .content > ul > li {
+.img-container > .content > ul > li {
   margin-top: 18px;
 }
