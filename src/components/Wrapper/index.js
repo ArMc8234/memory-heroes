@@ -14,6 +14,7 @@ class Wrapper extends Component {
       topScore: 0,
       count: 0,
       characters,
+      message:"",
     }
   }
     
@@ -22,15 +23,47 @@ class Wrapper extends Component {
   }
 
   shuffleArray = () => {
+    
     const characters = this.state.characters.sort(() => Math.random() - 0.5);
     this.setState({ characters });
   };
+
+  toggle = (id) => {
+    console.log("Key passed: ", id);
+    let charactersList = [...this.state.characters];
+    console.log("charactersList: ", charactersList);
+    const selectedCharacter = charactersList.filter(character => {
+      let newCharacter = character.id === id;
+      return newCharacter;
+    })
+    console.log("selectedCharacter: ", selectedCharacter);
+    console.log("selectedCharacter Status: ", selectedCharacter[0].clicked)
+    if (selectedCharacter[0].clicked === false){
+      let newPrompt = "  You Da Man !!! " 
+      this.setState({ message: newPrompt});
+
+      selectedCharacter[0].clicked = true;
+      // this.setState({ characters: this.state.characters.clicked === selectedCharacter[0].clicked})
+      console.log("toggled to ", selectedCharacter[0].clicked)
+    }
+    else {
+      console.log("Already toggled to true!");
+      let newPrompt = " You Lose ! ";
+      this.setState({ message: newPrompt,
+       
+      });
+     
+      this.reset()
+    }
+  }
+
+
   handleIncrement = (name) => {
       // We always use the setState method to update a component's state
       //   const newCard = [...this.state.characters];
-      //   const index = newCard.indexOf(this.state.characters);
+      //   const selectedCharacter = newCard.indexOf(this.state.characters);
         
-      //   if(newCard[index].clicked == true ){
+      //   if(newCard[selectedCharacter].clicked == true ){
       //     const newCard2= [...this.state.characters];
       //     newCard2.map(c=> c.clicked =false );
       //     if(this.state.score > this.state.topScore){
@@ -43,7 +76,7 @@ class Wrapper extends Component {
       //     this.setState({score: 0, characters:newCard2, topScore:newRecord});
   
       // }else{
-      //    newCard[index].picked = true;
+      //    newCard[selectedCharacter].picked = true;
       //    const newScore = this.state.score +1;
       //    newCard.sort(()=> Math.random()-0.5); 
       //    this.setState({characters: newCard, score:newScore,}); 
@@ -51,10 +84,15 @@ class Wrapper extends Component {
     // if(this.state.character.clicked === false){
     // this.setState({ characters: this.state.characters.clicked === true });
     this.setState({ score: this.state.score + 1 });
-    this.setState({ topScore: this.state.topScore + 1 });
+    if (this.state.score >= this.state.topScore){
+      // let newTopScore = this.state.score;
+    
+      this.setState({ topScore: this.state.score + 1})
+    }
+    // this.setState({ topScore: this.state.topScore + 1 });
     console.log("Clicked", name)
     // this.topScoreCheck();
-    // this.shuffleArray();
+    this.shuffleArray();
     // }
     // else if (this.state.characters.clicked === true){
     //   this.topScoreCheck();
@@ -64,12 +102,20 @@ class Wrapper extends Component {
   };
 
   reset = () => {
-    this.setState({ score: this.state.score === 0 });
-    this.shuffleArray()
-    //use map to reset all to false.
-    this.state.characters.map(character => character.clicked === false )
+    // this.setState({ score: this.setState.score});
+    const initialScore = -1;
+      this.setState({ score: this.state.score = initialScore });
    
+    // //use map to reset all to false.
+    let charactersList = [...this.state.characters];
+    console.log("List to reset: ", charactersList);
+    const resetStatus = charactersList.map(e => ({ ...e, clicked: false }));
+    console.log("reset list:", resetStatus);
+    // let refreshedList = resetStatus
+    this.setState({ characters: this.state.characters = resetStatus})
+    this.shuffleArray();
   }
+    
 
   topScoreCheck = () => {
     let currentScore = this.state.score;
@@ -78,38 +124,31 @@ class Wrapper extends Component {
       this.setState({ topScore: this.state.score})
     }
   }
-  toggle = (clicked) => {
-    console.log("toggle value: ", clicked)
-    if (clicked === false){
-      clicked = true;
-      this.setState({ characters: this.state.characters.clicked === clicked})
-      console.log("toggled to ", clicked)
-    }
-    else {
-      console.log("Already toggled to true!")
-    }
-  }
+
 
   render(){
     return (
-    <div className="container">
-       <Navbar score={this.state.score} topScore={this.state.topScore} />
+      <>
+       <Navbar message={this.state.message} score={this.state.score} topScore={this.state.topScore} />
         <Header alignment="text-center" />
-        <div >
-          {this.state.characters.map(character => (
-                <CharacterCard
-                  name={character.name}
-                  image={character.image}
-                  key={character.id}
-                  // type={"img"}
-                  clicked={character.clicked}
-                  handleIncrement={this.handleIncrement}
-                  toggle={this.toggle}
+          <div className="container">
+              
+                {this.state.characters.map(character => (
+                      <CharacterCard
+                        name={character.name}
+                        image={character.image}
+                        id={character.id}
+                        key={character.id}
+                        // type={"img"}
+                        clicked={character.clicked.value}
+                        toggle={this.toggle}
+                        handleIncrement={this.handleIncrement}
 
-                />
-              ))}
-        </div>
-    </div>
+                      />
+                    ))}
+             
+          </div>
+    </>
     )
   }
 }
