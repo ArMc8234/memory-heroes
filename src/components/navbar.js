@@ -7,7 +7,7 @@ function navbar(props) {
                 <li className="nav-item">
                     <a href="/">Super Clicks</a>
                 </li>
-                <li className="nav-item" id="result"></li>
+                <li className="nav-item" id="result">{props.message}</li>
                 <li className="nav-item" id="score">Score: {props.score} | Top Score: {props.topScore}</li>
             </ul>
         </nav>
