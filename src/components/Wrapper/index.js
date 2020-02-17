@@ -39,7 +39,7 @@ class Wrapper extends Component {
     console.log("selectedCharacter: ", selectedCharacter);
     console.log("selectedCharacter Status: ", selectedCharacter[0].clicked)
     if (selectedCharacter[0].clicked === false){
-      let newPrompt = "  You Da Man !!! " 
+      let newPrompt = "Excellent Pick !" 
       this.setState({ message: newPrompt});
 
       selectedCharacter[0].clicked = true;
@@ -60,58 +60,26 @@ class Wrapper extends Component {
 
   handleIncrement = (name) => {
       // We always use the setState method to update a component's state
-      //   const newCard = [...this.state.characters];
-      //   const selectedCharacter = newCard.indexOf(this.state.characters);
-        
-      //   if(newCard[selectedCharacter].clicked == true ){
-      //     const newCard2= [...this.state.characters];
-      //     newCard2.map(c=> c.clicked =false );
-      //     if(this.state.score > this.state.topScore){
-      //         var newRecord;
-      //         newRecord = this.state.score;
-      //     }else{
-      //         newRecord = this.state.topScore
-      //     }
-  
-      //     this.setState({score: 0, characters:newCard2, topScore:newRecord});
-  
-      // }else{
-      //    newCard[selectedCharacter].picked = true;
-      //    const newScore = this.state.score +1;
-      //    newCard.sort(()=> Math.random()-0.5); 
-      //    this.setState({characters: newCard, score:newScore,}); 
-      // }
-    // if(this.state.character.clicked === false){
-    // this.setState({ characters: this.state.characters.clicked === true });
-    this.setState({ score: this.state.score + 1 });
+     this.setState({ score: this.state.score + 1 });
+
     if (this.state.score >= this.state.topScore){
-      // let newTopScore = this.state.score;
-    
       this.setState({ topScore: this.state.score + 1})
     }
-    // this.setState({ topScore: this.state.topScore + 1 });
-    console.log("Clicked", name)
-    // this.topScoreCheck();
-    this.shuffleArray();
-    // }
-    // else if (this.state.characters.clicked === true){
-    //   this.topScoreCheck();
-    //   this.reset();
 
-    // }
+    this.shuffleArray();
   };
 
   reset = () => {
-    // this.setState({ score: this.setState.score});
-    const initialScore = -1;
+      const initialScore = -1;
       this.setState({ score: this.state.score = initialScore });
    
-    // //use map to reset all to false.
+    //use map to reset all to false.
     let charactersList = [...this.state.characters];
     console.log("List to reset: ", charactersList);
+    
     const resetStatus = charactersList.map(e => ({ ...e, clicked: false }));
     console.log("reset list:", resetStatus);
-    // let refreshedList = resetStatus
+    
     this.setState({ characters: this.state.characters = resetStatus})
     this.shuffleArray();
   }
