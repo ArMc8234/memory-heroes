@@ -2,75 +2,75 @@
     {
       "id": 1,
       "name": "Apocalypse",
-      "image": "/assets/apocalypse.jpg",
+      "image": "/assets/apocalypse.jpg?raw=true",
       "clicked": false
     },
     {
      "id": 2,
       "name": "Black Panther",
-      "image": "/assets/blackPanther.jpg",
+      "image": "/assets/blackPanther.jpg?raw=true",
       "clicked": false
     },
     {
       "id": 3,
       "name": "Captain Universe Spiderman",
-      "image": "/assets/captain_cosmic_spiderman.jpg",
+      "image": "/assets/captain_cosmic_spiderman.jpg?raw=true",
       "clicked": false
     },
     {
       "id": 4,
       "name": "Captain America",
-      "image": "/assets/captainAmerica.jpg",
+      "image": "/assets/captainAmerica.jpg?raw=true",
       "clicked": false
   
     },
     {
       "id": 5,
       "name": "Hawkeye",
-     "image": "/assets/hawkeye.jpg",
+     "image": "/assets/hawkeye.jpg?raw=true",
       "clicked": false
   
     },
     {
       "id": 6,
       "name": "Hulk",
-      "image": "/assets/hulk.jpg",
+      "image": "/assets/hulk.jpg?raw=true",
       "clicked": false
     },
     {
       "id": 7,
       "name": "Iron Man",
-      "image": "/assets/ironman.jpg",
+      "image": "/assets/ironman.jpg?raw=true",
       "clicked": false
     },
     {
       "id": 8,
       "name": "Kingpin",
-      "image": "/assets/kingpin.jpg",
+      "image": "/assets/kingpin.jpg?raw=true",
       "clicked": false
     },
     {
       "id": 9,
       "name": "Mr. Sinister",
-      "image": "/assets/misterSinister.jpg",
+      "image": "/assets/misterSinister.jpg?raw=true",
       "clicked": false
     },
     {
       "id": 10,
       "name": "Professor X",
-      "image": "/assets/professorX.jpg",
+      "image": "/assets/professorX.jpg?raw=true",
       "clicked": false
     },
     {
       "id": 11,
       "name": "Thanos",
-      "image": "/assets/thanos.jpg",
+      "image": "/assets/thanos.jpg?raw=true",
       "clicked": false
     },
     {
       "id": 12,
       "name": "Wolverine",
-      "image":"/assets/wolverine.jpg",
+      "image":"/assets/wolverine.jpg?raw=true",
       "clicked": false
     }
   ]
