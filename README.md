@@ -1,3 +1,6 @@
+Welcome to my 'clicky-game' project, "Memory Heroes!"
+You can access the heroku-deployed app at https://memory-heroes.herokuapp.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
