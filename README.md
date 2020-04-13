@@ -1,7 +1,46 @@
+# Memory Heroes
+
 Welcome to my 'clicky-game' project, "Memory Heroes!"
-You can access the heroku-deployed app at https://memory-heroes.herokuapp.com/
+
+![Demo](./public/assets/Memory_Hero_Demo.gif)
+
+You can access the heroku-deployed app at https://memory-heroes.herokuapp.com
+
+## Summary
+This project uses React.js and Bootstrap. A JSON file was created to hold JSON objects with all of the character details.
+
+```javascript
+ {
+      "id": 1,
+      "name": "Apocalypse",
+      "image": "/assets/apocalypse.jpg",
+      "clicked": false
+    }
+```
+A component titled "CharacterCard" was created to receive the JSON data as props and render the cards displayed within the Game wrapper.
+
+```javascript
+{this.state.characters.map(character => (
+                      <CharacterCard
+                        name={character.name}
+                        image={character.image}
+                        id={character.id}
+                        key={character.id}
+                        // type={"img"}
+                        clicked={character.clicked.value}
+                        toggle={this.toggle}
+                        handleIncrement={this.handleIncrement}
+
+                      />
+                    ))}
+```
+
+A series of functions toggle filters through the characters list to determine the character chart that is selected, checks the characters.clicked boolean to determine if it was previously selected and the flips that boolean to "true" if it has not been previously chosen. The state of the score is changed and compared to the previous higher score while the character cards are reshuffled.  If the user selects a card that has been previously chosen, then the user loses and the game is reset.
+
+# React.js Readme File Boilerplate
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
